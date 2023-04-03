@@ -1,2 +1,13 @@
-<h1>Welcome to SvelteKit</h1>
-<p>Visit <a href="https://kit.svelte.dev">kit.svelte.dev</a> to read the documentation</p>
+<script lang="ts">
+	import Spacer from '$lib/Spacer.svelte';
+	import type { PageData } from './$types';
+
+	export let data: PageData;
+</script>
+
+<div class="container mx-auto text-white">
+	<Spacer vertical spacing="100px" />
+	<h1 class="text-5xl font-bold">Song ID Bot</h1>
+	<p class="text-xl mt-5">The only open source Song Id platform for Twitch</p>
+	<a href={data.redirect} class="btn-purple">Login with Twitch</a>
+</div>
