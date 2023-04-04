@@ -13,7 +13,7 @@
 </script>
 
 <QueryClientProvider client={queryClient}>
-	<main class="bg-slate-800">
+	<main>
 		<slot />
 	</main>
 </QueryClientProvider>
