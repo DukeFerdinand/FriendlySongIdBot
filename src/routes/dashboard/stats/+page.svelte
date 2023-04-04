@@ -1,5 +1,5 @@
-<script>
-	import { Line } from 'svelte-chartjs';
+<script lang="ts">
+	import Chart from '$lib/components/chart.svelte';
 
 	const stats = [
 		{
@@ -24,6 +24,12 @@
 				backgroundColor: 'rgb(255, 99, 132)',
 				borderColor: 'rgb(255, 99, 132)',
 				data: [0, 10, 5, 2, 20, 30, 45]
+			},
+			{
+				label: 'My Second dataset',
+				backgroundColor: 'green',
+				borderColor: 'green',
+				data: [0, 10, 5, 2, 20, 30, 45].reverse()
 			}
 		]
 	};
@@ -39,6 +45,6 @@
 		</div>
 	{/each}
 	<div class="col-span-3 bg-gray-200 p-4 pt-8 pb-6 rounded-xl rounded-br-3xl">
-		<Line data={chartData} />
+		<Chart data={chartData} />
 	</div>
 </div>

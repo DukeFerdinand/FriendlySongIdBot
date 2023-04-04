@@ -5,7 +5,7 @@
 	export let data: PageData;
 </script>
 
-<div class="container mx-auto text-white">
+<div class="h-screen text-white bg-slate-950">
 	<Spacer vertical spacing="100px" />
 	<h1 class="text-5xl font-bold">Song ID Bot</h1>
 	<p class="text-xl mt-5">The only open source Song Id platform for Twitch</p>
