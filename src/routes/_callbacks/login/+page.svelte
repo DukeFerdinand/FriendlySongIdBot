@@ -1,10 +1,10 @@
 <script lang="ts">
 	import { createQuery } from '@tanstack/svelte-query';
 	import Spinner from '$lib/components/spinner.svelte';
+	import { goto } from '$app/navigation';
 
-	interface ExpectedTwitchParams {
-		code: string;
-		scope: string;
+	interface ExpectedLoginResponse {
+		redirect: true;
 	}
 
 	let error = '';
@@ -14,7 +14,7 @@
 		error = 'No access token found, please try again.';
 	}
 
-	$: query = createQuery({
+	$: query = createQuery<ExpectedLoginResponse>({
 		queryKey: ['auth-token'],
 		retry: false,
 		refetchOnWindowFocus: false,
@@ -37,6 +37,10 @@
 			return res.json();
 		}
 	});
+
+	$: if ($query.data?.redirect) {
+		goto('/dashboard', { replaceState: true });
+	}
 </script>
 
 <div class="container mx-auto text-center pt-40">
