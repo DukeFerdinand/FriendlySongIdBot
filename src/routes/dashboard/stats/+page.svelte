@@ -1,4 +1,5 @@
 <script lang="ts">
+	import type { LineProps } from 'svelte-chartjs/Line.svelte';
 	import Chart from '$lib/components/chart.svelte';
 
 	const stats = [
@@ -16,7 +17,7 @@
 		}
 	];
 
-	const chartData = {
+	const chartData: LineProps['data'] = {
 		labels: ['January', 'February', 'March', 'April', 'May', 'June', 'July'],
 		datasets: [
 			{
